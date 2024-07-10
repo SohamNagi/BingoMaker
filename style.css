@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=League Spartan');
+
+div[style*="position: fixed !important; bottom: 0% !important; width: 100% !important; height: 55px !important; z-index: 9999 !important;"] {
+    display: none !important;
+}
+
+body {
+    font-family: 'League Spartan', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff; /* Page background white */
+    color: #000000; /* Text color black */
+}
+
+.card {
+    border: 2px solid #000;
+    margin: 20px;
+    padding: 10px;
+    display: inline-block;
+    page-break-inside: avoid;
+    background-color: #f0f0f0; /* Slight off-white color for cards */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center the text inside the card */
+    color: #000000; /* Ensure text is readable */
+}
+.card-title {
+    font-size: 24px;
+    color: #0093ad; /* Blue color for title */
+    margin-bottom: 5px;
+    text-decoration: solid;
+    font-weight: 900;
+}
+.card-row {
+    display: flex;
+}
+.card-cell {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    word-wrap: break-word; /* Ensure text wraps within the cell */
+}
+.card-row:nth-child(odd) .card-cell:nth-child(even),
+.card-row:nth-child(even) .card-cell:nth-child(odd) {
+    background-color: #0093ad;
+    color: white; /* Ensure text is readable on the blue background */
+}
+.card-row:nth-child(odd) .card-cell:nth-child(odd),
+.card-row:nth-child(even) .card-cell:nth-child(even) {
+    background-color: #f0f0f0; /* Slight off-white color */
+}
+#input-container {
+    margin-bottom: 20px;
+    text-align: center; /* Center the content */
+}
+#names {
+    width: 300px; /* Make the input field larger */
+}
+#bingo-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+@media print {
+    body {
+        margin: 20px;
+    }
+    #bingo-cards {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+    .card {
+        display: inline-block;
+        page-break-inside: avoid;
+        margin: 20px;
+        vertical-align: top;
+    }
+    #input-container {
+        display: none; /* Hide the input container when printing */
+    }
+}
